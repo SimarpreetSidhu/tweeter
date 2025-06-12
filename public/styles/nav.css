@@ -12,15 +12,17 @@ Full width of the viewport
   height : 120px;
   background-color: #4056A1;
   color:#FFFFFF ;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
 }
 .nav-right {
-  padding: 1.5em;
+  font-family: "Bungee", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 .nav-left {
-  padding: 1.5em;
+  font-family: "Bungee", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
