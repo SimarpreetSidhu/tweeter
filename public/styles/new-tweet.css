@@ -1,0 +1,16 @@
+.new-tweet {
+  margin : 0 auto;
+}
+.footer {
+  display :flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+button[type="submit"] {
+  background-color: blue;
+  color: white;
+  text-transform: uppercase;
+
+}
+
+
