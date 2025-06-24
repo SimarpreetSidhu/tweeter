@@ -1,12 +1,14 @@
 .new-tweet {
-  margin : 0 auto;
+  margin: 0 auto;
 }
+
 footer {
-  display :flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-top: 10px;
 }
+
 button[type="submit"] {
   background-color: blue;
   color: white;
@@ -14,17 +16,16 @@ button[type="submit"] {
   align-self: start;
 
 }
- #tweet-text {
-  height: auto;         
-  resize: none;             
-  line-height: 1.5;       
-  display: block;         
-  width: 100%;    
+
+#tweet-text {
+  height: auto;
+  resize: none;
+  line-height: 1.5;
+  display: block;
+  width: 100%;
   border-bottom: 5px solid black;
 }
 
 .counter.negative {
-  color : red
+  color: red
 }
-
-
