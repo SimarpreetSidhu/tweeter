@@ -23,4 +23,8 @@ button[type="submit"] {
   border-bottom: 5px solid black;
 }
 
+.counter.negative {
+  color : red
+}
+
 
