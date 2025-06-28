@@ -8,6 +8,8 @@
   <!-- Set viewport-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <meta charset="UTF-8">
+
   <!-- Font awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -35,6 +37,9 @@
 
   <!-- New-tweet CSS -->
   <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+
+  <!-- tweet CSS -->
+  <link rel="stylesheet" href="/styles/tweet.css" type="text/css" />
 
   <!-- External JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -71,7 +76,7 @@
   <main class="container">
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
-      <form method = "POST" action = "/api/tweets">
+      <form method="POST" action="/api/tweets">
         <label for="tweet-text">What are you humming about?</label>
         <textarea name="text" id="tweet-text"></textarea>
         <footer>
@@ -79,6 +84,51 @@
           <output name="counter" class="counter" for="tweet-text">140</output>
         </footer>
       </form>
+    </section>
+    <section class="tweet-container">
+      <article>
+        <header>
+          <div class="left-header">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Valentina" alt="Valentina photo" />
+            <span class="name">Valentina</span>
+          </div>
+          <span class="handle">@valentina</span>
+        </header>
+
+        <p>This is my first tweet</p>
+
+        <footer>
+          <span>Days ago</span>
+          <div class="footer-icons">
+            <i class="fa-solid fa-flag"></i>
+            <i class="fa-solid fa-retweet"></i>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+        </footer>
+      </article>
+
+      <article>
+        <header>
+          <div class="left-header">
+            <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Chase" alt="Chase photo" />
+            <span class="name">Chase</span>
+          </div>
+          <span class="handle">@chase</span>
+        </header>
+
+        <p>This is my second tweet</p>
+
+        <footer>
+          <span>Days ago</span>
+          <div class="footer-icons">
+            <i class="fa-solid fa-flag"></i>
+            <i class="fa-solid fa-retweet"></i>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+        </footer>
+      </article>
+
+    </section>
   </main>
 </body>
 

@@ -1,0 +1,35 @@
+.tweet-container header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top : 20px;
+}
+
+.tweet-container footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 5px solid black;
+}
+
+article {
+  border: 5px solid black ;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.left-header {
+  display: flex;
+  align-items: center;
+}
+
+footer {
+  padding :10px;
+}
+
+.footer-icons i:hover {
+  color:#bac010;
+  box-shadow: 5px 5px 15px rgba(16, 15, 1, 0.237);
+}
+
