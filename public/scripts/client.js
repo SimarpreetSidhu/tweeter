@@ -36,34 +36,9 @@ const renderTweets = function(tweets) {
 
 }
 
-const tweetData = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1736200735747
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1736287135747
-  }
-]
-
 const submitFom = function() {
   const $form = $(`form`);
-  $form.on("submit", function(event){
+  $form.on("submit", function(event) {
     event.preventDefault();
     $.ajax({
       type: 'POST',
@@ -72,6 +47,7 @@ const submitFom = function() {
       success: function() {
         $('#tweet-text').val('');
         $('.counter').text('140');
+        loadTweets();
       },
       error: function(err) {
         console.error('Error posting tweet:', err);
@@ -80,7 +56,14 @@ const submitFom = function() {
   });
 }
 
+const loadTweets = function() {
+  $.get('/api/tweets', function(tweets) {
+    renderTweets(tweets);
+  });
+
+}
+
 $(document).ready(function() {
-  renderTweets(tweetData);
   submitFom();
+  loadTweets();
 });
