@@ -61,6 +61,26 @@ const tweetData = [
   }
 ]
 
+const submitFom = function() {
+  const $form = $(`form`);
+  $form.on("submit", function(event){
+    event.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: '/api/tweets',
+      data: $(this).serialize(),
+      success: function() {
+        $('#tweet-text').val('');
+        $('.counter').text('140');
+      },
+      error: function(err) {
+        console.error('Error posting tweet:', err);
+      }
+    });
+  });
+}
+
 $(document).ready(function() {
   renderTweets(tweetData);
+  submitFom();
 });
