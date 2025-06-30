@@ -40,6 +40,17 @@ const submitFom = function() {
   const $form = $(`form`);
   $form.on("submit", function(event) {
     event.preventDefault();
+    
+    const tweetText = $('#tweet-text').val().trim();
+
+    if (!tweetText) {
+      alert('Tweet cannot be empty!');
+      return;
+    }
+    if (tweetText.length > 140) {
+      alert('Tweet is too long!');
+      return;
+    }
     $.ajax({
       type: 'POST',
       url: '/api/tweets',
