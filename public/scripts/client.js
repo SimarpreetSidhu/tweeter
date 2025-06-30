@@ -3,7 +3,7 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-const escapeText = function (str) {
+const escapeText = function(str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
@@ -34,7 +34,7 @@ const createTweetElement = function(tweet) {
 }
 
 const renderTweets = function(tweets) {
-  $('#tweets-container').empty();  
+  $('#tweets-container').empty();
   for (let tweet of tweets) {
     const $tweet = createTweetElement(tweet);
     $('#tweets-container').prepend($tweet);
@@ -42,35 +42,45 @@ const renderTweets = function(tweets) {
 };
 
 const submitForm = function() {
-  const $form = $(`form`);
-  $form.on("submit", function(event) {
+  const $form = $('form');
+  const $errorBox = $('.tweet-error');
+  const $errorText = $('.tweet-error__text');
+  const $textarea = $('#tweet-text');
+  const $counter = $('.counter');
+
+  const showError = msg => $errorText.text(msg) && $errorBox.slideDown();
+  const hideError = () => $errorBox.slideUp();
+
+  // Hide on input
+  $textarea.on('input', hideError);
+
+  $form.on('submit', function(event) {
     event.preventDefault();
 
-    const tweetText = $('#tweet-text').val().trim();
+    hideError();
 
-    if (!tweetText) {
-      alert('Tweet cannot be empty!');
-      return;
+    const text = $textarea.val().trim();
+
+    if (text.length === 0) {
+      return showError('❌ Your tweet cannot be empty.');
     }
-    if (tweetText.length > 140) {
-      alert('Tweet is too long!');
-      return;
+    if (text.length > 140) {
+      return showError('❌ Your tweet is too long (max 140).');
     }
-    $.ajax({
-      type: 'POST',
-      url: '/api/tweets',
-      data: $(this).serialize(),
-      success: function() {
-        $('#tweet-text').val('');
-        $('.counter').text('140');
+
+    $.post('/api/tweets', $form.serialize())
+      .done(() => {
+        $textarea.val('');
+        $counter.text('140');
         loadTweets();
-      },
-      error: function(err) {
-        console.error('Error posting tweet:', err);
-      }
-    });
+      })
+      .fail(() => showError('⚠️ Could not post.'));
   });
-}
+
+  hideError();
+};
+
+
 
 const loadTweets = function() {
 

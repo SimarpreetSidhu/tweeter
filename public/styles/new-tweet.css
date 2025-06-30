@@ -29,3 +29,14 @@ button[type="submit"] {
 .counter.negative {
   color: red
 }
+
+.tweet-error {
+  display: none;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border: 1px solid #e74c3c;
+  background-color: #fdecea;
+  color: #c0392b;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
