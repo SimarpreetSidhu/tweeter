@@ -3,6 +3,12 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
+const escapeText = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 const createTweetElement = function(tweet) {
   const $tweet = $(`<article>
         <header>
@@ -13,7 +19,7 @@ const createTweetElement = function(tweet) {
           <span class="handle">${tweet.user.handle}</span>
         </header>
 
-        <p>${tweet.content.text}</p>
+        <p>${escapeText(tweet.content.text)}</p>
 
         <footer>
           <span>${timeago.format(tweet.created_at)}</span>
@@ -28,15 +34,14 @@ const createTweetElement = function(tweet) {
 }
 
 const renderTweets = function(tweets) {
-
+  $('#tweets-container').empty();  
   for (let tweet of tweets) {
     const $tweet = createTweetElement(tweet);
-    $('#tweets-container').prepend($tweet)
+    $('#tweets-container').prepend($tweet);
   }
+};
 
-}
-
-const submitFom = function() {
+const submitForm = function() {
   const $form = $(`form`);
   $form.on("submit", function(event) {
     event.preventDefault();
@@ -69,7 +74,6 @@ const submitFom = function() {
 
 const loadTweets = function() {
 
-  $('#tweets-container').empty();
   $.get('/api/tweets', function(tweets) {
     renderTweets(tweets);
   });
@@ -77,6 +81,6 @@ const loadTweets = function() {
 }
 
 $(document).ready(function() {
-  submitFom();
+  submitForm();
   loadTweets();
 });
