@@ -40,7 +40,7 @@ const submitFom = function() {
   const $form = $(`form`);
   $form.on("submit", function(event) {
     event.preventDefault();
-    
+
     const tweetText = $('#tweet-text').val().trim();
 
     if (!tweetText) {
@@ -68,6 +68,8 @@ const submitFom = function() {
 }
 
 const loadTweets = function() {
+
+  $('#tweets-container').empty();
   $.get('/api/tweets', function(tweets) {
     renderTweets(tweets);
   });
