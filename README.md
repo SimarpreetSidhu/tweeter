@@ -6,13 +6,11 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## 📸 Screenshots
 
-### ✅ Mobile View
-- Profile banner with avatar at the top
-- Vertical layout for tweets
+### 🖥️ Desktop View
+![Desktop View](https://github.com/SimarpreetSidhu/tweeter/blob/master/docs/Desktop_View.png)
 
-### ✅ Desktop View
-- Profile section in a left-hand sidebar
-- Tweet form and feed on the right
+### 📱 Tablet View
+![Tablet View](https://github.com/SimarpreetSidhu/tweeter/blob/master/docs/Tablet_View.png)
 
 ## 🧩 Features
 
