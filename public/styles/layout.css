@@ -1,8 +1,3 @@
-/*
- * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
- * https://css-tricks.com/international-box-sizing-awareness-day/
- * Do not modify these two selectors, please
- */
 html {
   box-sizing: border-box;
 }
@@ -10,30 +5,150 @@ html {
   box-sizing: inherit;
 }
 
-/*
- * Global layout stuff
- */
-
 body {
   color: #545149;
   background-color: cornsilk;
   font-size: 24px;
   font-family: 'Source Sans 3', sans-serif;
   padding-top: 120px;
+  margin: 0;
 }
 
-/*
- * Additional CSS can be defined below or in other CSS files, as per instructions
- */
+/* Navbar */
+.nav-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #3e4eb8;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+  font-family: 'Bungee', sans-serif;
+  z-index: 1000;
+}
 
- .container {
+.nav-left span {
+  font-size: 24px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Header for mobile/tablet */
+.page-header {
+  background-color: #e5a631;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.page-header .image img {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem;
+}
+
+.page-header .name h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.page-header .name strong {
+  font-weight: bold;
+  color: white;
+}
+
+/* Container */
+.container {
   width: 90%;
   margin: 0 auto;
   background-color: inherit;
+}
 
- }
- 
- section {
+section {
   margin-top: 20px;
   margin-bottom: 20px;
- }
+}
+
+/* Small screens: Hide profile-column */
+@media screen and (max-width: 1023px) {
+  .profile-column {
+    display: none !important;
+  }
+
+  .page-header {
+    display: block;
+  }
+}
+
+/* Desktop layout */
+@media screen and (min-width: 1024px) {
+  .page-header {
+    display: none !important;
+  }
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3rem;
+    max-width: 1200px;
+    padding: 2rem;
+  }
+
+  .profile-column {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    background-color: #e5a631;
+    border-radius: 10px;
+    padding: 2rem 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .profile {
+    text-align: center;
+    color: white;
+  }
+
+  .profile img {
+    width: 120px;
+    margin-bottom: 1rem;
+  }
+
+  .profile h2 {
+    font-size: 1.4rem;
+    margin: 0;
+  }
+
+  .profile strong {
+    font-weight: bold;
+    color: white;
+  }
+
+  .content-column {
+    width: 70%;
+  }
+
+  .new-tweet {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+  }
+
+  .new-tweet h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  #tweets-container {
+    width: 100%;
+  }
+}

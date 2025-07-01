@@ -64,21 +64,33 @@
       </div>
     </div>
   </nav>
-  <header>
-    <div class="image">
-      <img src="/images/profile-hex.png">
-    </div>
-    <br>
-    <div class="name">
-      <h2>Simarpreet Sidhu</h2>
-    </div>
-  </header>
 
-  <!-- Page-specific (main) content here -->
-  <main class="container">
+  <!-- Mobile/tablet: Header above content | Desktop: header is part of sidebar -->
+ <!-- Header for mobile/tablet -->
+<header class="page-header">
+  <div class="profile-banner">
+    <img src="/images/profile-hex.png" alt="Profile Image">
+    <h2><strong>Simarpreet</strong> Sidhu</h2>
+  </div>
+</header>
+
+
+<!-- Main container with profile sidebar (desktop) -->
+<main class="container">
+
+  <!-- Sidebar only shown on desktop -->
+  <aside class="profile-column">
+    <div class="profile">
+      <img src="/images/profile-hex.png" alt="Profile Image">
+      <h2><strong>Simarpreet</strong> Sidhu</h2>
+    </div>
+  </aside>
+
+  <!-- Main tweet content -->
+  <section class="content-column">
     <section class="new-tweet">
       <h2>Compose Tweet</h2>
-      <form method="POST" action="/api/tweets">
+      <form method="POST" action="http://localhost:8080/api/tweets">
         <label for="tweet-text">What are you humming about?</label>
         <textarea name="text" id="tweet-text"></textarea>
         <div class="tweet-error">
@@ -90,8 +102,14 @@
         </footer>
       </form>
     </section>
-    <section id="tweets-container"></section>
-  </main>
+
+    <section id="tweets-container">
+      <!-- Your tweets go here -->
+    </section>
+  </section>
+</main>
+
+
 </body>
 
 </html>
